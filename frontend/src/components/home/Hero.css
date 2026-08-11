@@ -1,0 +1,10 @@
+.heroPage{
+    height: 100vh;
+    margin-top: 50px;
+}
+.brandImages{
+    height: 100%;
+    width:100%;
+    -o-object-fit:contain;
+    
+}

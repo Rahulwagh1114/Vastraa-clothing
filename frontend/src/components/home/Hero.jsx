@@ -1,8 +1,30 @@
-function Hero(){
-    return(
+import { useState, useEffect } from "react";
+import "./Hero.css";
+
+function Hero() {
+    const [imgIndex, setImgIndex] = useState(0);
+
+    const images = [
+        "/comboBrand.png",
+        "/menBrand.png",
+        "/womenBrand.png",
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImgIndex(prev => (prev + 1) % images.length); // cycle through 0,1,2,0,1,2...
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
         <>
-        <img src="https://plus.unsplash.com/premium_photo-1661964205360-b0621b5a9366?q=80&w=1138&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img>
+        <div className="heroPage">
+            <img className="brandImages" src={images[imgIndex]} alt="" />
+         </div>
         </>
     )
 }
+
 export default Hero

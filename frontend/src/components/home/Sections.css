@@ -1,0 +1,68 @@
+.sections{
+margin-top:20px ;
+cursor: pointer;
+}
+.sectionsIconsDiv{
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   margin: 30px;
+}
+.sectionsIconsDiv span{
+    font-weight: 600;
+}
+.sectionsIconsDiv p{
+    opacity: 0.9;
+}
+
+.sectionsCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+  margin: 25px;
+}
+.collectionImg{
+    height: 300px;
+    width: 580px;
+    transition: transform 0.4s ease;
+}
+#sectionLady{
+     height: 287px;
+    width: 565px;
+}
+.collectionImg:hover{
+     transform: scale(1.03);
+}
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 15px;
+}
+.cardImg{
+    height: 300px;
+    width: 350px;
+     transition: transform 0.4s ease;
+}
+.cardImg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+#ladyCard{
+    height: 287px;
+    width: 290px;
+     border-radius: 15px;
+   
+}
+#ladyCard img{
+     border-radius: 15px;
+}
+.cardImg:hover{
+     transform: scale(1.03);
+}
