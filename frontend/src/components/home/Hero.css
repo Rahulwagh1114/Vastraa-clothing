@@ -1,10 +1,111 @@
-.heroPage{
+.heroPage {
+    position: relative;
     height: 100vh;
+    width: 100%;
     margin-top: 50px;
+    overflow: hidden;
+    background-color: #f4f1ec;
 }
-.brandImages{
+
+.brandImages {
+    position: absolute;
+    inset: 0;
     height: 100%;
-    width:100%;
-    -o-object-fit:contain;
-    
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.2s ease, transform 6s ease;
+    z-index: 1;
+}
+
+.brandImages.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.heroOverlay {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 6%;
+    transform: translateY(-50%);
+    max-width: 480px;
+    color: #fff;
+}
+
+.heroTag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.heroOverlay h1 {
+    font-family: serif;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+.heroOverlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.8rem;
+}
+
+.heroBtn {
+    background-color: #b8860b;
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.heroBtn:hover {
+    background-color: #96700a;
+    transform: translateY(-2px);
+}
+
+.heroDots {
+    position: absolute;
+    bottom: 1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 3;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    width: 22px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .heroOverlay { left: 5%; max-width: 90%; }
+    .heroOverlay h1 { font-size: 2.2rem; }
 }

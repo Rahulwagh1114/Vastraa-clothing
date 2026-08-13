@@ -1,68 +1,186 @@
-.sections{
-margin-top:20px ;
-cursor: pointer;
-}
-.sectionsIconsDiv{
-   display: flex;
-   justify-content: space-between;
-   text-align: center;
-   margin: 30px;
-}
-.sectionsIconsDiv span{
-    font-weight: 600;
-}
-.sectionsIconsDiv p{
-    opacity: 0.9;
+.sections {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.sectionsCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  overflow: hidden;
-  margin: 25px;
-}
-.collectionImg{
-    height: 300px;
-    width: 580px;
-    transition: transform 0.4s ease;
-}
-#sectionLady{
-     height: 287px;
-    width: 565px;
-}
-.collectionImg:hover{
-     transform: scale(1.03);
+/* Perks */
+.perksBar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
 }
 
-.cards{
+.perkCard {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    overflow: hidden;
-    margin-left: 15px;
+    gap: 1rem;
+    background-color: #faf8f5;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.cardImg{
-    height: 300px;
-    width: 350px;
-     transition: transform 0.4s ease;
+
+.perkCard:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transform: translateY(-3px);
 }
-.cardImg img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+
+.perkIcon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background-color: #1a1a1a;
+    color: #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.perkCard span {
+    font-weight: 600;
+    font-size: 0.9rem;
     display: block;
 }
-#ladyCard{
-    height: 287px;
-    width: 290px;
-     border-radius: 15px;
-   
+
+.perkCard p {
+    font-size: 0.78rem;
+    color: #777;
+    margin: 0.2rem 0 0;
 }
-#ladyCard img{
-     border-radius: 15px;
+
+/* Collection Grid */
+.collectionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
 }
-.cardImg:hover{
-     transform: scale(1.03);
+
+.collectionCard {
+    position: relative;
+    height: 340px;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.collectionCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collectionCard:hover img {
+    transform: scale(1.06);
+}
+
+.collectionOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55), transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.8rem;
+    color: #fff;
+}
+
+.collectionOverlay h3 {
+    font-family: serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: rgb(77, 36, 6);
+}
+
+.collectionOverlay button {
+    align-self: flex-start;
+    background-color: #fff;
+    color: #1a1a1a;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.collectionOverlay button:hover {
+    background-color: #d4af37;
+    color: #fff;
+}
+
+/* Category heading */
+.categoryHeading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.categoryHeading h2 {
+    font-family: serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.4rem;
+}
+
+.categoryHeading p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Category grid */
+.categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.categoryCard {
+    cursor: pointer;
+}
+
+.categoryImgWrap {
+    height: 300px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #faf8f5;
+}
+
+.categoryImgWrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.categoryCard:hover .categoryImgWrap img {
+    transform: scale(1.07);
+}
+
+.categoryLabel {
+    display: block;
+    text-align: center;
+    margin-top: 0.9rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: #1a1a1a;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .perksBar { grid-template-columns: repeat(2, 1fr); }
+    .categoryGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .collectionGrid { grid-template-columns: 1fr; }
+    .perksBar { grid-template-columns: 1fr; }
 }

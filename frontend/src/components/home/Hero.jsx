@@ -12,19 +12,34 @@ function Hero() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setImgIndex(prev => (prev + 1) % images.length); // cycle through 0,1,2,0,1,2...
+            setImgIndex(prev => (prev + 1) % images.length);
         }, 5000);
-
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <>
         <div className="heroPage">
-            <img className="brandImages" src={images[imgIndex]} alt="" />
-         </div>
-        </>
-    )
+            {images.map((img, index) => (
+                <img
+                    key={index}
+                    className={`brandImages ${index === imgIndex ? "active" : ""}`}
+                    src={img}
+                    alt=""
+                />
+            ))}
+
+
+            <div className="heroDots">
+                {images.map((_, index) => (
+                    <span
+                        key={index}
+                        className={`dot ${index === imgIndex ? "activeDot" : ""}`}
+                        onClick={() => setImgIndex(index)}
+                    ></span>
+                ))}
+            </div>
+        </div>
+    );
 }
 
-export default Hero
+export default Hero;

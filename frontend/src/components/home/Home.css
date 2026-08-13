@@ -1,6 +1,6 @@
-.homePage{
+.homePage {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    padding-top: 18px; /* navbar ki height jitna space */
     width: 100%;
 }

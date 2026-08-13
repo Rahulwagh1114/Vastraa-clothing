@@ -1,53 +1,74 @@
 import "./Sections.css";
-function Sections(){
-    return(
-       <>
-       <div className="sections">
-        <div className="sectionsIconsDiv">
-            <div>
-                <i className="fa-regular fa-truck"></i><span>Free Delivery</span>
-                <p>On Order Over ₹599</p>
-            </div>
-             <div>
-                <i className="fa-solid fa-circle-notch"></i><span>Easy Returns</span>
-                <p>7 Days return Policy</p>
-            </div>
-             <div>
-                <i className="fa-solid fa-shield"></i><span>Secure Payment</span>
-                <p>100% Secure Payment Options</p>
-            </div>
-             <div>
-               <i className="fa-solid fa-headset"></i><span>24/7 Support</span>
-                <p>We are Here to Help</p>
-            </div>
-        </div>
 
-        <div className="sectionsCard">
-            <div>
-                <img className="collectionImg" src="/mens_collection_small.png"></img>
-            </div>
-            <div>
-                <img  className="collectionImg" id="sectionLady" src="/womens_collection_small.png"></img>
-            </div>
-        </div>
-        
+function Sections() {
+    const perks = [
+        { icon: "fa-truck", title: "Free Delivery", desc: "On order over ₹599" },
+        { icon: "fa-arrows-rotate", title: "Easy Returns", desc: "7 days return policy" },
+        { icon: "fa-shield-halved", title: "Secure Payment", desc: "100% secure options" },
+        { icon: "fa-headset", title: "24/7 Support", desc: "We are here to help" },
+    ];
 
-       <div className="cards">
-        <div className="cardImg" id="ladyCard">
-    <img src="https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/womenCard.png" alt="" />
-    </div>
-    <div className="cardImg" style={{marginLeft:"17px"}}>
-    <img src="https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/menCard.png" alt="" />
-    </div>
-    <div className="cardImg">
-    <img src="https://res.cloudinary.com/kmejh5qg/image/upload/v1786458738/bagCard.png" alt="" />
-    </div>
-    <div className="cardImg">
-    <img src="https://res.cloudinary.com/kmejh5qg/image/upload/v1786458504/shoesCard.png" alt="" />
-    </div>
-</div>
-       </div>
-       </>
-    )
+    const products = [
+        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/womenCard.png", label: "Women" },
+        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/menCard.png", label: "Men" },
+        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/bagCard.png", label: "Bags" },
+        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458504/shoesCard.png", label: "Shoes" },
+    ];
+
+    return (
+        <div className="sections">
+
+            {/* Perks */}
+            <div className="perksBar">
+                {perks.map((perk, i) => (
+                    <div className="perkCard" key={i}>
+                        <div className="perkIcon">
+                            <i className={`fa-solid ${perk.icon}`}></i>
+                        </div>
+                        <div>
+                            <span>{perk.title}</span>
+                            <p>{perk.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Collection banners */}
+            <div className="collectionGrid">
+                <div className="collectionCard">
+                    <img src="/mens_collection_small.png" alt="Men's Collection" />
+                    <div className="collectionOverlay">
+                        <h3>Men's Collection</h3>
+                        <button>Shop Now →</button>
+                    </div>
+                </div>
+                <div className="collectionCard">
+                    <img src="/womens_collection_small.png" alt="Women's Collection" />
+                    <div className="collectionOverlay">
+                        <h3>Women's Collection</h3>
+                        <button>Shop Now →</button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Category cards */}
+            <div className="categoryHeading">
+                <h2>Shop by Category</h2>
+                <p>Find exactly what you're looking for</p>
+            </div>
+
+            <div className="categoryGrid">
+                {products.map((item, i) => (
+                    <div className="categoryCard" key={i}>
+                        <div className="categoryImgWrap">
+                            <img src={item.img} alt={item.label} />
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    );
 }
+
 export default Sections;
