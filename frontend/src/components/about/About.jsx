@@ -6,8 +6,8 @@ function About() {
 
             {/* Hero */}
             <section className="aboutHero">
-                <h1>Our Story</h1>
-                <p>Woven with passion, tailored for you.</p>
+                <h1>Our Legacy</h1>
+                <p>Elevate your everyday wardrobe with modern styles crafted for confidence, comfort, and individuality.</p>
             </section>
 
             {/* Story Section */}

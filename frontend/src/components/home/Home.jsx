@@ -11,7 +11,9 @@ function Home() {
             <Navbar />
             <Hero />
             <Sections />
-            <About />
+               <div id="about">
+                <About />
+            </div>
             <Footer />
         </div>
     );

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
+import {Link} from "react-router-dom";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -10,6 +11,33 @@ function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
+     const scrollToTop = (e) => {
+        e.preventDefault();
+        if (location.pathname !== "/") {
+            navigate("/");
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 100);
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    };
+
+
+    const scrollToAbout = (e) => {
+        e.preventDefault();
+        if (location.pathname !== "/") {
+            // agar kisi aur page pe ho to pehle home aayein, phir scroll karein
+            navigate("/");
+            setTimeout(() => {
+                document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+        } else {
+            document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="brandName">
@@ -18,10 +46,11 @@ function Navbar() {
 
             <div className="navLinks">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Men</a></li>
-                    <li><a href="">Women</a></li>
+                    <li><a href="/" onClick={scrollToTop}>Home</a></li>
+                   <li><a href="#about" onClick={scrollToAbout}>About</a></li>
+                     <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/shop">Men</Link></li>
+                    <li><Link to="/shop">Women</Link></li>
                 </ul>
             </div>
 

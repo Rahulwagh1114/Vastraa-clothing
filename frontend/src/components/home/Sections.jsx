@@ -8,12 +8,12 @@ function Sections() {
         { icon: "fa-headset", title: "24/7 Support", desc: "We are here to help" },
     ];
 
-    const products = [
-        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/womenCard.png", label: "Women" },
-        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/menCard.png", label: "Men" },
-        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458502/bagCard.png", label: "Bags" },
-        { img: "https://res.cloudinary.com/kmejh5qg/image/upload/v1786458504/shoesCard.png", label: "Shoes" },
-    ];
+   const products = [
+    { img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80", label: "Women" },
+    { img: "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?auto=format&fit=crop&w=600&q=80", label: "Men" },
+    { img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", label: "Bags" },
+    { img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80", label: "Shoes" },
+];
 
     return (
         <div className="sections">
@@ -63,6 +63,7 @@ function Sections() {
                         <div className="categoryImgWrap">
                             <img src={item.img} alt={item.label} />
                         </div>
+                        <span className="categoryLabel">{item.label}</span>
                     </div>
                 ))}
             </div>
