@@ -1,12 +1,120 @@
 
 
- .shopTitle{
-     background: linear-gradient(135deg, #f4f1ec 0%, #ece4d6 100%);
-     padding: 10px;
-     margin-top: 50px;
-     text-align: center;
-     
- }
+.shopTitle {
+  background: linear-gradient(135deg, #f4f1ec 0%, #ece4d6 100%);
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  top: 41px;      /* navbar ki normal height */
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 150;    /* navbar (200) se kam, content se zyada */
+  transition: top 0.3s ease;
+}
+.shopTitle p{
+  line-height: 5px;
+}
  .shopTitle::after{
     background: radial-gradient(circle, rgba(184,134,11,0.08), transparent 70%);
  }
+
+ /* Shopping cards container */
+.allProductsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 40px 60px;
+  margin-left: 220px; /* agar Sidebar fixed-width hai to isse adjust karo */
+  min-height: 100vh;
+  background-color: #fafafa;
+  margin-top: 150px;
+}
+
+
+/* Individual product card */
+.productCard {
+  width: 220px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.productCard img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.productCard h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px 12px 4px;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productCard p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin: 0 12px 12px;
+}
+
+.productCard p::before {
+  content: "₹";
+}
+.nextPreBtn{
+  margin-top: 10px;
+  position:relative ;
+  bottom: 0;
+}
+
+.nextPreBtn button{
+  padding: 8px 15px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color:chocolate;
+  font-weight: 600;
+  border: none;
+  color: white;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.nextPreBtn button:hover{
+ transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 300px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
