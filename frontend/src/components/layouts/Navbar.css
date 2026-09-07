@@ -72,13 +72,18 @@
     height: 2px;
     background-color: #d4af37;
     transition: width 0.3s ease;
+    border: none;
 }
 
 .navLinks a:hover {
     color: #d4af37;
 }
 
-.navLinks a:hover::after {
+.navLinks a.active {
+    color: #d4af37;
+}
+
+.navLinks a.active::after {
     width: 100%;
 }
 

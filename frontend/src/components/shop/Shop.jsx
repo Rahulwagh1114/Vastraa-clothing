@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar"
 import "./Shop.css";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Shop() {
@@ -10,6 +11,7 @@ function Shop() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
+  const navigate =useNavigate();
 
   useEffect(() => {
     const getProducts = async () => {
@@ -27,6 +29,10 @@ function Shop() {
     getProducts()
   }, [page]);
 
+const handleCardClick=(id)=>{
+ navigate(`/${id}`)
+}
+
   return (
     <>
       <Navbar />
@@ -41,7 +47,7 @@ function Shop() {
             <div className="loader"></div>
           </div>
         ) : (products.map((product) => (
-          <div className="productCard" key={product.id}>
+          <div onClick={()=>handleCardClick (product._id)} className="productCard" key={product._id}>
             <img src={`${product.img}?w=400&q=60&auto=format`} loading="lazy" alt={product.title} />
             <h3>{product.title}</h3>
             <p>{product.price}</p>

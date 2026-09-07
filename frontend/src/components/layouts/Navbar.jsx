@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
-import {Link} from "react-router-dom";
+import {Link,useLocation,useNavigate} from "react-router-dom";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const [activeLink, setActiveLink]=useState('home')
+        const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -12,8 +15,15 @@ function Navbar() {
     }, []);
 
 
+   useEffect(()=>{
+    if(location.pathname==="/shop"){
+        setActiveLink("shop");
+    }
+},[location])
+
      const scrollToTop = (e) => {
         e.preventDefault();
+        setActiveLink("home")
         if (location.pathname !== "/") {
             navigate("/");
             setTimeout(() => {
@@ -27,6 +37,7 @@ function Navbar() {
 
     const scrollToAbout = (e) => {
         e.preventDefault();
+          setActiveLink("about");
         if (location.pathname !== "/") {
             // agar kisi aur page pe ho to pehle home aayein, phir scroll karein
             navigate("/");
@@ -46,11 +57,15 @@ function Navbar() {
 
             <div className="navLinks">
                 <ul>
-                    <li><a href="/" onClick={scrollToTop}>Home</a></li>
-                   <li><a href="#about" onClick={scrollToAbout}>About</a></li>
-                     <li><Link to="/shop">Shop</Link></li>
-                    <li><Link to="/shop">Men</Link></li>
-                    <li><Link to="/shop">Women</Link></li>
+                    <li><a href="/" className={activeLink==='home'?'active':''} onClick={scrollToTop}>Home</a></li>
+                   <li><a href="#about" className={activeLink==='about'?'active':''} onClick={scrollToAbout}>About</a></li>
+                     <li> <Link 
+                            className={activeLink === 'shop' ? 'active' : ''} 
+                            to="/shop" 
+                            onClick={() => setActiveLink('shop')}
+                        >
+                            Shop
+                        </Link></li>
                 </ul>
             </div>
 
@@ -62,12 +77,12 @@ function Navbar() {
             <div className="iconsDiv">
                 <ul>
                     <li>
-                        <a href="" title="Account">
+                        <a href="#" title="Account">
                             <i className="fa-solid fa-user"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="" className="cartLink" title="Cart">
+                        <a href="#" className="cartLink" title="Cart">
                             <i className="fa-solid fa-cart-shopping"></i>
                             <span className="cartBadge">2</span>
                         </a>
